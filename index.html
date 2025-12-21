@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Garraoui</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        nav {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            color: #1a1a1a;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .project-list, .award-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .project-list li, .award-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .project-list li:last-child, .award-list li:last-child {
+            border-bottom: none;
+        }
+
+        .project-title, .award-title {
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .project-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .project-title a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-links {
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+
+        .book-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .book-cover {
+            width: 120px;
+            flex-shrink: 0;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-author {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .nav-links a {
+                margin-left: 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo" data-page="home">Omar Garraoui</a>
+            <div class="nav-links">
+                <a href="#" data-page="home" class="active">Home</a>
+                <a href="#" data-page="projects">Projects</a>
+                <a href="#" data-page="publications">Publications</a>
+                <a href="#" data-page="books">Books</a>
+                <a href="#" data-page="about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <img src="profile.png" alt="Omar Garraoui" class="profile-photo">
+            <h1>Omar Garraoui</h1>
+            <p>Mathematical Engineering student at Politecnico di Milano.</p>
+            <div class="contact-links">
+                <a href="mailto:ogarraoui@icloud.com">Email</a>
+                <a href="https://github.com/omargarraoui" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <!-- Projects Page -->
+        <div id="projects" class="page">
+            <h1>Projects</h1>
+            <p>Things I've built.</p>
+            <p>Please note that many of these projects cannot be found online due to some server problems I'm experiencing.</p>
+            
+            <ul class="project-list">
+                <li>
+                    <div class="project-title">Readiamo</div>
+                    <p>A social reading platform originally an Android app, designed to connect readers based on their interests and provide personalized book recommendations through implemented recommendation systems.</p>
+                </li>
+                <li>
+                    <div class="project-title"><a href="https://leggerediscienza.itstkennedy.edu.it" target="_blank">Leggere Di Scienza</a></div>
+                    <p>A school project website that collects and shares science-related books and reading suggestions, created to help others discover and explore science through reading.</p>
+                </li>
+                <li>
+                    <div class="project-title">Aeacus</div>
+                    <p>An app for managing 2FA codes: import from QR codes, modify them, OTP/HOTP, create 2FA codes, manual insertion, etc. It will soon be available on the App Store.</p>
+                </li>
+            </ul>
+
+            <h2>Petty Projects</h2>
+            <p>Small experiments and tools. Nothing serious.</p>
+            
+            <ul class="project-list">
+                <li>
+                    <div class="project-title">Auditor</div>
+                    <p>An AI system that uses Claude to create knowledge bubbles about the user and uses them to interact, creating a more personalized experience.</p>
+                </li>
+                <li>
+                    <div class="project-title">Haraka</div>
+                    <p>A transliteration and translation tool from Arabic that allows using the <a href="https://en.wikipedia.org/wiki/Arabic_chat_alphabet" target="_blank">Arabizi</a> alphabet.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Publications Page -->
+        <div id="publications" class="page">
+            <h1>Publications</h1>
+            <p>I'm a first-year student, still learning how to write proper research papers. This section will be updated as I progress.</p>
+        </div>
+
+        <!-- Books Page -->
+        <div id="books" class="page">
+            <h1>Books</h1>
+            <p>Books I recommend.</p>
+            
+            <ul class="project-list">
+                <li>
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <img src="BookCovers/colossal-book-cover.jpg" alt="The Colossal Book of Short Puzzles and Problems">
+                        </div>
+                        <div class="book-info">
+                            <div class="project-title">The Colossal Book of Short Puzzles and Problems</div>
+                            <div class="book-author">Martin Gardner</div>
+                            <p>I loved this book when I read it in high school. It doesn't require any particular mathematical knowledge, just curiosity and the willingness to think.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <h1>About</h1>
+            <p>I'm studying Mathematical Engineering at Politecnico di Milano and I'm part of Collegio di Milano.</p>
+            <p>I like building things and solving problems.</p>
+            <p>I'm also interested in football, Brazilian Jiu Jitsu, and cycling.</p>
+
+            <h2>Recognition</h2>
+            <ul class="award-list">
+                <li>Italian Mathematics Olympiad – National Semifinals</li>
+                <li>Fratelli Zilli Scholarship</li>
+                <li>Collegio di Milano Fellowship</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('[data-page]');
+        const pages = document.querySelectorAll('.page');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('data-page');
+                
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(pageId).classList.add('active');
+                
+                links.forEach(l => l.classList.remove('active'));
+                document.querySelectorAll(`[data-page="${pageId}"]`).forEach(l => l.classList.add('active'));
+                
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
+</body>
+</html>
