@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,21 +90,25 @@
             margin-bottom: 15px;
         }
 
-        .project-list, .award-list {
+        .project-list,
+        .award-list {
             list-style: none;
             margin-top: 20px;
         }
 
-        .project-list li, .award-list li {
+        .project-list li,
+        .award-list li {
             padding: 15px 0;
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .project-list li:last-child, .award-list li:last-child {
+        .project-list li:last-child,
+        .award-list li:last-child {
             border-bottom: none;
         }
 
-        .project-title, .award-title {
+        .project-title,
+        .award-title {
             font-weight: 500;
             color: #1a1a1a;
             margin-bottom: 5px;
@@ -155,7 +160,7 @@
             width: 100%;
             height: auto;
             border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .book-info {
@@ -172,7 +177,7 @@
             h1 {
                 font-size: 2em;
             }
-            
+
             .nav-links a {
                 margin-left: 15px;
                 font-size: 0.9em;
@@ -180,6 +185,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="container">
@@ -210,34 +216,43 @@
         <div id="projects" class="page">
             <h1>Projects</h1>
             <p>Things I've built.</p>
-            <p>Please note that many of these projects cannot be found online due to some server problems I'm experiencing.</p>
-            
+            <p>Please note that many of these projects cannot be found online due to some server problems I'm
+                experiencing.</p>
+
             <ul class="project-list">
                 <li>
                     <div class="project-title">Readiamo</div>
-                    <p>A social reading platform originally an Android app, designed to connect readers based on their interests and provide personalized book recommendations through implemented recommendation systems.</p>
+                    <p>A social reading platform originally an Android app, designed to connect readers based on their
+                        interests and provide personalized book recommendations through implemented recommendation
+                        systems.</p>
                 </li>
                 <li>
-                    <div class="project-title"><a href="https://leggerediscienza.itstkennedy.edu.it" target="_blank">Leggere Di Scienza</a></div>
-                    <p>A school project website that collects and shares science-related books and reading suggestions, created to help others discover and explore science through reading.</p>
+                    <div class="project-title"><a href="https://leggerediscienza.itstkennedy.edu.it"
+                            target="_blank">Leggere Di Scienza</a></div>
+                    <p>A school project website that collects and shares science-related books and reading suggestions,
+                        created to help others discover and explore science through reading.</p>
                 </li>
                 <li>
                     <div class="project-title">Aeacus</div>
-                    <p>An app for managing 2FA codes: import from QR codes, modify them, OTP/HOTP, create 2FA codes, manual insertion, etc. It will soon be available on the App Store.</p>
+                    <p>An app for managing 2FA codes: import from QR codes, modify them, OTP/HOTP, create 2FA codes,
+                        manual insertion, etc. It will soon be available on the App Store.</p>
                 </li>
             </ul>
 
             <h2>Petty Projects</h2>
             <p>Small experiments and tools. Nothing serious.</p>
-            
+
             <ul class="project-list">
                 <li>
                     <div class="project-title">Auditor</div>
-                    <p>An AI system that uses Claude to create knowledge bubbles about the user and uses them to interact, creating a more personalized experience.</p>
+                    <p>An AI system that uses Claude to create knowledge bubbles about the user and uses them to
+                        interact, creating a more personalized experience.</p>
                 </li>
                 <li>
                     <div class="project-title">Haraka</div>
-                    <p>A transliteration and translation tool from Arabic that allows using the <a href="https://en.wikipedia.org/wiki/Arabic_chat_alphabet" target="_blank">Arabizi</a> alphabet.</p>
+                    <p>A transliteration and translation tool from Arabic that allows using the <a
+                            href="https://en.wikipedia.org/wiki/Arabic_chat_alphabet" target="_blank">Arabizi</a>
+                        alphabet.</p>
                 </li>
             </ul>
         </div>
@@ -245,12 +260,20 @@
         <!-- Publications Page -->
         <div id="publications" class="page">
             <h1>Publications</h1>
-            <p>I'm a first-year student, still learning how to write proper research papers. This section will be updated as I progress.</p>
-            
+            <p>I'm a first-year student, still learning how to write proper research papers. This section will be
+                updated as I progress.</p>
+
             <ul class="project-list">
                 <li>
-                    <div class="project-title"><a href="StringMatching.pdf" target="_blank">Optimizing Exact String Matching via Statistical Anchoring</a></div>
-                    <p>In this project, I developed an enhancement to the Boyer-Moore-Horspool algorithm specifically for natural language processing. My approach involves preprocessing the search pattern to identify the "anchor", its statistically least frequent character. During the search, the algorithm performs its first verification at this high-entropy position, allowing for a faster discard of non-matching windows. This implementation demonstrates how integrating linguistic statistics into classical pattern-matching can significantly improve performance without increasing the complexity of the shift heuristics.</p>
+                    <div class="project-title"><a href="StringMatching.pdf" target="_blank">Optimizing Exact String
+                            Matching via Statistical Anchoring</a></div>
+                    <p>In this project, I developed an enhancement to the Boyer-Moore-Horspool algorithm specifically
+                        for natural language processing. My approach involves preprocessing the search pattern to
+                        identify the "anchor", its statistically least frequent character. During the search, the
+                        algorithm performs its first verification at this high-entropy position, allowing for a faster
+                        discard of non-matching windows. This implementation demonstrates how integrating linguistic
+                        statistics into classical pattern-matching can significantly improve performance without
+                        increasing the complexity of the shift heuristics.</p>
                 </li>
             </ul>
         </div>
@@ -259,17 +282,19 @@
         <div id="books" class="page">
             <h1>Books</h1>
             <p>Books I recommend.</p>
-            
+
             <ul class="project-list">
                 <li>
                     <div class="book-item">
                         <div class="book-cover">
-                            <img src="BookCovers/colossal-book-cover.jpg" alt="The Colossal Book of Short Puzzles and Problems">
+                            <img src="BookCovers/colossal-book-cover.jpg"
+                                alt="The Colossal Book of Short Puzzles and Problems">
                         </div>
                         <div class="book-info">
                             <div class="project-title">The Colossal Book of Short Puzzles and Problems</div>
                             <div class="book-author">Martin Gardner</div>
-                            <p>I loved this book when I read it in high school. It doesn't require any particular mathematical knowledge, just curiosity and the willingness to think.</p>
+                            <p>I loved this book when I read it in high school. It doesn't require any particular
+                                mathematical knowledge, just curiosity and the willingness to think.</p>
                         </div>
                     </div>
                 </li>
@@ -283,12 +308,15 @@
             <p>I like building things and solving problems.</p>
             <p>I'm also interested in football, Brazilian Jiu Jitsu, and cycling.</p>
 
-            <h2>Recognition</h2>
+            <h2>Recognitions and Awards</h2>
             <ul class="award-list">
                 <li>Italian Mathematics Olympiad – National Semifinals</li>
-                <li>Fratelli Zilli Scholarship</li>
                 <li>Collegio di Milano Fellowship</li>
+                <li>Fratelli Zilli Scholarship (2024, 2025)</li>
+                <li>Recognized among the Top Students at ITST Kennedy (2024, 2025)</li>
+                <li>Best Student of the Islamic Community (2025)</li>
             </ul>
+
         </div>
     </div>
 
@@ -300,16 +328,17 @@
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const pageId = link.getAttribute('data-page');
-                
+
                 pages.forEach(page => page.classList.remove('active'));
                 document.getElementById(pageId).classList.add('active');
-                
+
                 links.forEach(l => l.classList.remove('active'));
                 document.querySelectorAll(`[data-page="${pageId}"]`).forEach(l => l.classList.add('active'));
-                
+
                 window.scrollTo(0, 0);
             });
         });
     </script>
 </body>
+
 </html>
