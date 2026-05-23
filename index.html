@@ -28,6 +28,14 @@
             z-index: 100;
         }
 
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.95em;
+            font-family: 'Courier New', monospace;
+        }
+
         nav .container {
             max-width: 800px;
             margin: 0 auto;
@@ -243,6 +251,9 @@
             <p>Small experiments and tools. Nothing serious.</p>
 
             <ul class="project-list">
+                <li>
+                    <div class="project-title"><a href="https://github.com/omargarraoui/mtchdpmxt" target="_blank">PMXT Arbitrage Scanner</a></div>
+                    <p>A blind arbitrage detector for prediction markets. It decomposes cross-venue price discrepancies into exploitable hedging opportunities by calculating effective cost-per-payout under venue-specific fee regimes. The system computes the effective cost to guarantee $1 payout on each side, accounting for whether fees are charged upfront (taker structure: <code>c = ask × (1 + r)</code>) or deferred on profit (profit structure: <code>c = ask / (1 − (1 − ask) × r)</code>). When <code>c<sub>YES</sub> + c<sub>NO</sub> &lt; 1.0</code>, a risk-free arbitrage exists. Optimal capital allocation scales inversely with cost to equalize payout across outcomes. Built on market-neutral hedging combined with fee structure asymmetry across platforms.</p>                </li>
                 <li>
                     <div class="project-title"><a href="https://omargarraoui.com/causalpulse/" target="_blank">CausalPulse</a></div>
                     <p>A blind source separation system for analyzing global news streams. It decomposes observable articles into latent forces (geopolitical tension, economic cycles, social dynamics), revealing how a single force propagates across seemingly unrelated domains. Based on <a href="https://arxiv.org/pdf/2604.04973" target="_blank">StrADiff</a> (arXiv:2604.04973), a structured source-wise adaptive diffusion framework.</p>
