@@ -252,6 +252,10 @@
 
             <ul class="project-list">
                 <li>
+                    <div class="project-title"><a href="https://github.com/omargarraoui/contradiction-tensor" target="_blank">Contradiction Tensor</a></div>
+                    <p>A data structure that maps the internal contradictions of a belief system as an <code>N × N × K</code> tensor, where N is the number of beliefs and K indexes market regimes. Each cell <code>T[i, j, k]</code> holds a contradiction score in <code>[0, 1]</code> computed by a local NLI model with no API dependency. Scores are symmetric by construction: <code>score(a, b) = (NLI(a→b) + NLI(b→a)) / 2</code>. Context weights modulate scores per regime as <code>T[i, j, k] = base × w<sub>k</sub></code>, allowing the same belief pair to carry different tension under crisis versus expansion. Core operations: <code>max_contradiction()</code> over any context slice; <code>min_removal_set()</code> as a greedy 2-approximation of Minimum Vertex Cover on the induced conflict graph; <code>tension_clusters()</code> via Union-Find over edges above a threshold.</p>
+                </li>
+                <li>
                     <div class="project-title"><a href="https://github.com/omargarraoui/mtchdpmxt" target="_blank">PMXT Arbitrage Scanner</a></div>
                     <p>A blind arbitrage detector for prediction markets. It decomposes cross-venue price discrepancies into exploitable hedging opportunities by calculating effective cost-per-payout under venue-specific fee regimes. The system computes the effective cost to guarantee $1 payout on each side, accounting for whether fees are charged upfront (taker structure: <code>c = ask × (1 + r)</code>) or deferred on profit (profit structure: <code>c = ask / (1 − (1 − ask) × r)</code>). When <code>c<sub>YES</sub> + c<sub>NO</sub> &lt; 1.0</code>, a risk-free arbitrage exists. Optimal capital allocation scales inversely with cost to equalize payout across outcomes. Built on market-neutral hedging combined with fee structure asymmetry across platforms.</p>                </li>
                 <li>
