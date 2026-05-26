@@ -203,6 +203,7 @@
                 <a href="#" data-page="projects">Projects</a>
                 <a href="#" data-page="publications">Publications</a>
                 <a href="#" data-page="books">Books</a>
+                <a href="garraouiomar-2.pdf" data-page="CV">CV</a>
                 <a href="#" data-page="about">About</a>
             </div>
         </div>
@@ -262,7 +263,7 @@
                     <div class="project-title"><a href="https://omargarraoui.com/causalpulse/" target="_blank">CausalPulse</a></div>
                     <p>A news stream decomposition system grounded in <a href="https://arxiv.org/abs/2604.04973" target="_blank">StrADiff</a> (arXiv:2604.04973). The news stream is treated as an observation channel: each article embedding <code>y ∈ ℝ<sup>d</sup></code> is modeled as a mixture of <code>K</code> unobserved causal forces, with the full corpus forming a matrix <code>Y ∈ ℝ<sup>N×d</sup></code>. StrADiff assigns each latent dimension its own reverse diffusion branch and an independent Gaussian process prior with a learned length-scale <code>ℓₖ</code>, producing a source activation matrix <code>S ∈ ℝ<sup>N×K</sup></code>. A shared MLP decoder <code>g<sub>φ</sub>(S)</code> reconstructs the observations, with the joint objective combining reconstruction, GP, diffusion, and KL terms end-to-end. An edge between two articles in the output graph carries a source-overlap weight derived from their rows in <code>S</code>; a high weight is the detectable signature of a shared upstream latent force, independent of surface topic. The pipeline runs on GitHub Actions every 12 hours: articles are fetched via NewsAPI.ai, embedded with <code>all-MiniLM-L6-v2</code>, decomposed by the source model, and written to a static <code>data.json</code> consumed by a React/Cytoscape.js frontend.</p>
                 </li>
-                <li>
+                <li> 
                     <div class="project-title">Auditor</div>
                     <p>An AI system that uses Claude to create knowledge bubbles about the user and uses them to
                         interact, creating a more personalized experience.</p>
