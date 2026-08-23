@@ -1,367 +1,547 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Omar Garraoui</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #fff;
+      }
 
-        nav {
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            background: #fff;
-            z-index: 100;
-        }
+      nav {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 100;
+      }
 
-        code {
-            background: #f5f5f5;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.95em;
-            font-family: 'Courier New', monospace;
-        }
+      code {
+        background: #f5f5f5;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.95em;
+        font-family: "Courier New", monospace;
+      }
 
-        nav .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      nav .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .logo {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #1a1a1a;
-            text-decoration: none;
+      .logo {
+        font-weight: 600;
+        font-size: 1.1em;
+        color: #1a1a1a;
+        text-decoration: none;
+      }
+
+      .nav-links a {
+        color: #666;
+        text-decoration: none;
+        margin-left: 25px;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #1a1a1a;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 80px 20px;
+      }
+
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #1a1a1a;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: 15px;
+        margin-top: 30px;
+        color: #1a1a1a;
+      }
+
+      p {
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .project-list,
+      .award-list {
+        list-style: none;
+        margin-top: 20px;
+      }
+
+      .project-list li,
+      .award-list li {
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .project-list li:last-child,
+      .award-list li:last-child {
+        border-bottom: none;
+      }
+
+      .project-title,
+      .award-title {
+        font-weight: 500;
+        color: #1a1a1a;
+        margin-bottom: 5px;
+      }
+
+      .project-title a {
+        color: #1a1a1a;
+        text-decoration: none;
+      }
+
+      .project-title a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-links {
+        margin-top: 20px;
+      }
+
+      .contact-links a {
+        color: #0066cc;
+        text-decoration: none;
+        margin-right: 20px;
+      }
+
+      .contact-links a:hover {
+        text-decoration: underline;
+      }
+
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 30px;
+      }
+
+      .book-item {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .book-cover {
+        width: 120px;
+        flex-shrink: 0;
+      }
+
+      .book-cover img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .book-info {
+        flex: 1;
+      }
+
+      .book-author {
+        color: #666;
+        font-size: 0.95em;
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2em;
         }
 
         .nav-links a {
-            color: #666;
-            text-decoration: none;
-            margin-left: 25px;
-            transition: color 0.2s;
+          margin-left: 15px;
+          font-size: 0.9em;
         }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #1a1a1a;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            margin-top: 30px;
-            color: #1a1a1a;
-        }
-
-        p {
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .project-list,
-        .award-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .project-list li,
-        .award-list li {
-            padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .project-list li:last-child,
-        .award-list li:last-child {
-            border-bottom: none;
-        }
-
-        .project-title,
-        .award-title {
-            font-weight: 500;
-            color: #1a1a1a;
-            margin-bottom: 5px;
-        }
-
-        .project-title a {
-            color: #1a1a1a;
-            text-decoration: none;
-        }
-
-        .project-title a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-links {
-            margin-top: 20px;
-        }
-
-        .contact-links a {
-            color: #0066cc;
-            text-decoration: none;
-            margin-right: 20px;
-        }
-
-        .contact-links a:hover {
-            text-decoration: underline;
-        }
-
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 30px;
-        }
-
-        .book-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .book-cover {
-            width: 120px;
-            flex-shrink: 0;
-        }
-
-        .book-cover img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .book-info {
-            flex: 1;
-        }
-
-        .book-author {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 8px;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .nav-links a {
-                margin-left: 15px;
-                font-size: 0.9em;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <div class="container">
-            <a href="#" class="logo" data-page="home">Omar Garraoui</a>
-            <div class="nav-links">
-                <a href="#" data-page="home" class="active">Home</a>
-                <a href="#" data-page="projects">Projects</a>
-                <a href="#" data-page="publications">Publications</a>
-                <a href="#" data-page="books">Books</a>
-                <a href="#" data-page="about">About</a>
-            </div>
+      <div class="container">
+        <a href="#" class="logo" data-page="home">Omar Garraoui</a>
+        <div class="nav-links">
+          <a href="#" data-page="home" class="active">Home</a>
+          <a href="#" data-page="projects">Projects</a>
+          <a href="#" data-page="publications">Publications</a>
+          <a href="#" data-page="books">Books</a>
+          <a href="#" data-page="about">About</a>
         </div>
+      </div>
     </nav>
 
     <div class="container">
-        <!-- Home Page -->
-        <div id="home" class="page active">
-            <img src="profile.png" alt="Omar Garraoui" class="profile-photo">
-            <h1>Omar Garraoui</h1>
-            <p>Applied Mathematics student @ Politecnico di Milano.</p>
-            <div class="contact-links">
-                <a href="mailto:ogarraoui@icloud.com">Email</a>
-                <a href="https://github.com/omargarraoui" target="_blank">GitHub</a>
+      <!-- Home Page -->
+      <div id="home" class="page active">
+        <img src="profile.png" alt="Omar Garraoui" class="profile-photo" />
+        <h1>Omar Garraoui</h1>
+        <p>Applied Mathematics student @ Politecnico di Milano.</p>
+        <div class="contact-links">
+          <a href="mailto:ogarraoui@icloud.com">Email</a>
+          <a href="https://github.com/omargarraoui" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Projects Page -->
+      <div id="projects" class="page">
+        <h1>Projects</h1>
+        <p>Things I've built.</p>
+        <p>
+          Please note that many of these projects cannot be found online due to
+          some server problems I'm experiencing.
+        </p>
+
+        <ul class="project-list">
+          <li>
+            <div class="project-title">Readiamo</div>
+            <p>
+              A social reading platform originally an Android app, designed to
+              connect readers based on their interests and provide personalized
+              book recommendations through implemented recommendation systems.
+            </p>
+          </li>
+          <li>
+            <div class="project-title">
+              <a
+                href="https://leggerediscienza.itstkennedy.edu.it"
+                target="_blank"
+                >Leggere Di Scienza</a
+              >
             </div>
-        </div>
+            <p>
+              A school project website that collects and shares science-related
+              books and reading suggestions, created to help others discover and
+              explore science through reading.
+            </p>
+          </li>
+          <li>
+            <div class="project-title">Aeacus</div>
+            <p>
+              An app for managing 2FA codes: import from QR codes, modify them,
+              OTP/HOTP, create 2FA codes, manual insertion, etc. It will soon be
+              available on the App Store.
+            </p>
+          </li>
+        </ul>
 
-        <!-- Projects Page -->
-        <div id="projects" class="page">
-            <h1>Projects</h1>
-            <p>Things I've built.</p>
-            <p>Please note that many of these projects cannot be found online due to some server problems I'm
-                experiencing.</p>
+        <h2>Petty Projects</h2>
+        <p>Small experiments and tools. Nothing serious.</p>
 
-            <ul class="project-list">
-                <li>
-                    <div class="project-title">Readiamo</div>
-                    <p>A social reading platform originally an Android app, designed to connect readers based on their
-                        interests and provide personalized book recommendations through implemented recommendation
-                        systems.</p>
-                </li>
-                <li>
-                    <div class="project-title"><a href="https://leggerediscienza.itstkennedy.edu.it"
-                            target="_blank">Leggere Di Scienza</a></div>
-                    <p>A school project website that collects and shares science-related books and reading suggestions,
-                        created to help others discover and explore science through reading.</p>
-                </li>
-                <li>
-                    <div class="project-title">Aeacus</div>
-                    <p>An app for managing 2FA codes: import from QR codes, modify them, OTP/HOTP, create 2FA codes,
-                        manual insertion, etc. It will soon be available on the App Store.</p>
-                </li>
-            </ul>
+        <ul class="project-list">
+          <li>
+            <div class="project-title">
+              <a
+                href="https://github.com/omargarraoui/contradiction-tensor"
+                target="_blank"
+                >Contradiction Tensor</a
+              >
+            </div>
+            <p>
+              A data structure that maps the internal contradictions of a belief
+              system as an <code>N × N × K</code> tensor, where N is the number
+              of beliefs and K indexes market regimes. Each cell
+              <code>T[i, j, k]</code> holds a contradiction score in
+              <code>[0, 1]</code> computed by a local NLI model with no API
+              dependency. Scores are symmetric by construction:
+              <code>score(a, b) = (NLI(a→b) + NLI(b→a)) / 2</code>. Context
+              weights modulate scores per regime as
+              <code>T[i, j, k] = base × w<sub>k</sub></code
+              >, allowing the same belief pair to carry different tension under
+              crisis versus expansion. Core operations:
+              <code>max_contradiction()</code> over any context slice;
+              <code>min_removal_set()</code> as a greedy 2-approximation of
+              Minimum Vertex Cover on the induced conflict graph;
+              <code>tension_clusters()</code> via Union-Find over edges above a
+              threshold.
+            </p>
+          </li>
+          <li>
+            <div class="project-title">
+              <a
+                href="https://github.com/omargarraoui/mtchdpmxt"
+                target="_blank"
+                >PMXT Arbitrage Scanner</a
+              >
+            </div>
+            <p>
+              A blind arbitrage detector for prediction markets. It decomposes
+              cross-venue price discrepancies into exploitable hedging
+              opportunities by calculating effective cost-per-payout under
+              venue-specific fee regimes. The system computes the effective cost
+              to guarantee $1 payout on each side, accounting for whether fees
+              are charged upfront (taker structure:
+              <code>c = ask × (1 + r)</code>) or deferred on profit (profit
+              structure: <code>c = ask / (1 − (1 − ask) × r)</code>). When
+              <code>c<sub>YES</sub> + c<sub>NO</sub> &lt; 1.0</code>, a
+              risk-free arbitrage exists. Optimal capital allocation scales
+              inversely with cost to equalize payout across outcomes. Built on
+              market-neutral hedging combined with fee structure asymmetry
+              across platforms.
+            </p>
+          </li>
+          <li>
+            <div class="project-title">
+              <a href="https://omargarraoui.com/causalpulse/" target="_blank"
+                >CausalPulse</a
+              >
+            </div>
+            <p>
+              A news stream decomposition system grounded in
+              <a href="https://arxiv.org/abs/2604.04973" target="_blank"
+                >StrADiff</a
+              >
+              (arXiv:2604.04973). The news stream is treated as an observation
+              channel: each article embedding <code>y ∈ ℝ<sup>d</sup></code> is
+              modeled as a mixture of <code>K</code> unobserved causal forces,
+              with the full corpus forming a matrix
+              <code>Y ∈ ℝ<sup>N×d</sup></code
+              >. StrADiff assigns each latent dimension its own reverse
+              diffusion branch and an independent Gaussian process prior with a
+              learned length-scale <code>ℓₖ</code>, producing a source
+              activation matrix <code>S ∈ ℝ<sup>N×K</sup></code
+              >. A shared MLP decoder <code>g<sub>φ</sub>(S)</code> reconstructs
+              the observations, with the joint objective combining
+              reconstruction, GP, diffusion, and KL terms end-to-end. An edge
+              between two articles in the output graph carries a source-overlap
+              weight derived from their rows in <code>S</code>; a high weight is
+              the detectable signature of a shared upstream latent force,
+              independent of surface topic. The pipeline runs on GitHub Actions
+              every 12 hours: articles are fetched via NewsAPI.ai, embedded with
+              <code>all-MiniLM-L6-v2</code>, decomposed by the source model, and
+              written to a static <code>data.json</code> consumed by a
+              React/Cytoscape.js frontend.
+            </p>
+          </li>
+          <li>
+            <div class="project-title">Auditor</div>
+            <p>
+              An AI system that uses Claude to create knowledge bubbles about
+              the user and uses them to interact, creating a more personalized
+              experience.
+            </p>
+          </li>
+          <li>
+            <div class="project-title">Haraka</div>
+            <p>
+              A transliteration and translation tool from Arabic that allows
+              using the
+              <a
+                href="https://en.wikipedia.org/wiki/Arabic_chat_alphabet"
+                target="_blank"
+                >Arabizi</a
+              >
+              alphabet.
+            </p>
+          </li>
+        </ul>
+      </div>
 
-            <h2>Petty Projects</h2>
-            <p>Small experiments and tools. Nothing serious.</p>
+      <!-- Publications Page -->
+      <div id="publications" class="page">
+        <h1>Publications</h1>
+        <p>
+          I'm a first-year student, still learning how to write proper research
+          papers. This section will be updated as I progress.
+        </p>
 
-            <ul class="project-list">
-                <li>
-                    <div class="project-title"><a href="https://github.com/omargarraoui/contradiction-tensor" target="_blank">Contradiction Tensor</a></div>
-                    <p>A data structure that maps the internal contradictions of a belief system as an <code>N × N × K</code> tensor, where N is the number of beliefs and K indexes market regimes. Each cell <code>T[i, j, k]</code> holds a contradiction score in <code>[0, 1]</code> computed by a local NLI model with no API dependency. Scores are symmetric by construction: <code>score(a, b) = (NLI(a→b) + NLI(b→a)) / 2</code>. Context weights modulate scores per regime as <code>T[i, j, k] = base × w<sub>k</sub></code>, allowing the same belief pair to carry different tension under crisis versus expansion. Core operations: <code>max_contradiction()</code> over any context slice; <code>min_removal_set()</code> as a greedy 2-approximation of Minimum Vertex Cover on the induced conflict graph; <code>tension_clusters()</code> via Union-Find over edges above a threshold.</p>
-                </li>
-                <li>
-                    <div class="project-title"><a href="https://github.com/omargarraoui/mtchdpmxt" target="_blank">PMXT Arbitrage Scanner</a></div>
-                    <p>A blind arbitrage detector for prediction markets. It decomposes cross-venue price discrepancies into exploitable hedging opportunities by calculating effective cost-per-payout under venue-specific fee regimes. The system computes the effective cost to guarantee $1 payout on each side, accounting for whether fees are charged upfront (taker structure: <code>c = ask × (1 + r)</code>) or deferred on profit (profit structure: <code>c = ask / (1 − (1 − ask) × r)</code>). When <code>c<sub>YES</sub> + c<sub>NO</sub> &lt; 1.0</code>, a risk-free arbitrage exists. Optimal capital allocation scales inversely with cost to equalize payout across outcomes. Built on market-neutral hedging combined with fee structure asymmetry across platforms.</p>                </li>
-                <li>
-                    <div class="project-title"><a href="https://omargarraoui.com/causalpulse/" target="_blank">CausalPulse</a></div>
-                    <p>A news stream decomposition system grounded in <a href="https://arxiv.org/abs/2604.04973" target="_blank">StrADiff</a> (arXiv:2604.04973). The news stream is treated as an observation channel: each article embedding <code>y ∈ ℝ<sup>d</sup></code> is modeled as a mixture of <code>K</code> unobserved causal forces, with the full corpus forming a matrix <code>Y ∈ ℝ<sup>N×d</sup></code>. StrADiff assigns each latent dimension its own reverse diffusion branch and an independent Gaussian process prior with a learned length-scale <code>ℓₖ</code>, producing a source activation matrix <code>S ∈ ℝ<sup>N×K</sup></code>. A shared MLP decoder <code>g<sub>φ</sub>(S)</code> reconstructs the observations, with the joint objective combining reconstruction, GP, diffusion, and KL terms end-to-end. An edge between two articles in the output graph carries a source-overlap weight derived from their rows in <code>S</code>; a high weight is the detectable signature of a shared upstream latent force, independent of surface topic. The pipeline runs on GitHub Actions every 12 hours: articles are fetched via NewsAPI.ai, embedded with <code>all-MiniLM-L6-v2</code>, decomposed by the source model, and written to a static <code>data.json</code> consumed by a React/Cytoscape.js frontend.</p>
-                </li>
-                <li> 
-                    <div class="project-title">Auditor</div>
-                    <p>An AI system that uses Claude to create knowledge bubbles about the user and uses them to
-                        interact, creating a more personalized experience.</p>
-                </li>
-                <li>
-                    <div class="project-title">Haraka</div>
-                    <p>A transliteration and translation tool from Arabic that allows using the <a
-                            href="https://en.wikipedia.org/wiki/Arabic_chat_alphabet" target="_blank">Arabizi</a>
-                        alphabet.</p>
-                </li>
-            </ul>
-        </div>
+        <ul class="project-list">
+          <li>
+            <div class="project-title">
+              <a
+                href="https://github.com/omargarraoui/what-is-intelligence"
+                target="_blank"
+                >What Is Intelligence?</a
+              >
+            </div>
+            <p>
+              An essay synthesizing seven historical accounts of intelligence
+              (Spearman, Gardner, Kahneman, Shannon, Chollet, Friston, Deutsch),
+              examining what each perspective captures correctly. The paper
+              proposes a unified synthesis: the Generative Model Revision
+              account, defining intelligence as the capacity to build and
+              efficiently revise compressed generative models of the world under
+              uncertainty. Rather than attempting to resolve a century-old
+              debate, this work aims to understand it with sufficient precision
+              to identify where the genuine disagreements lie.
+            </p>
+          </li>
+          <li>
+            <div class="project-title">
+              <a href="https://arxiv.org/pdf/2601.03271" target="_blank"
+                >Optimizing Exact String Matching via Statistical Anchoring</a
+              >
+            </div>
+            <p>
+              In this project, I developed an enhancement to the
+              Boyer-Moore-Horspool algorithm specifically for natural language
+              processing. My approach involves preprocessing the search pattern
+              to identify the "anchor", its statistically least frequent
+              character. During the search, the algorithm performs its first
+              verification at this high-entropy position, allowing for a faster
+              discard of non-matching windows. This implementation demonstrates
+              how integrating linguistic statistics into classical
+              pattern-matching can significantly improve performance without
+              increasing the complexity of the shift heuristics.
+            </p>
+          </li>
+        </ul>
+      </div>
 
-        <!-- Publications Page -->
-        <div id="publications" class="page">
-            <h1>Publications</h1>
-            <p>I'm a first-year student, still learning how to write proper research papers. This section will be
-                updated as I progress.</p>
+      <!-- Books Page -->
+      <div id="books" class="page">
+        <h1>Books</h1>
+        <p>Books I recommend.</p>
 
-            <ul class="project-list">
-                <li>
-                    <div class="project-title"><a href="https://github.com/omargarraoui/what-is-intelligence" target="_blank">What Is Intelligence?</a></div>
-                    <p>An essay synthesizing seven historical accounts of intelligence (Spearman, Gardner, Kahneman, Shannon, Chollet, Friston, Deutsch), examining what each perspective captures correctly. The paper proposes a unified synthesis: the Generative Model Revision account, defining intelligence as the capacity to build and efficiently revise compressed generative models of the world under uncertainty. Rather than attempting to resolve a century-old debate, this work aims to understand it with sufficient precision to identify where the genuine disagreements lie.</p>
-                </li>
-                <li>
-                    <div class="project-title"><a href="https://arxiv.org/pdf/2601.03271" target="_blank">Optimizing Exact String
-                            Matching via Statistical Anchoring</a></div>
-                    <p>In this project, I developed an enhancement to the Boyer-Moore-Horspool algorithm specifically
-                        for natural language processing. My approach involves preprocessing the search pattern to
-                        identify the "anchor", its statistically least frequent character. During the search, the
-                        algorithm performs its first verification at this high-entropy position, allowing for a faster
-                        discard of non-matching windows. This implementation demonstrates how integrating linguistic
-                        statistics into classical pattern-matching can significantly improve performance without
-                        increasing the complexity of the shift heuristics.</p>
-                </li>
-            </ul>
-        </div>
+        <ul class="project-list">
+          <li>
+            <div class="book-item">
+              <div class="book-cover">
+                <img
+                  src="BookCovers/colossal-book-cover.jpg"
+                  alt="The Colossal Book of Short Puzzles and Problems"
+                />
+              </div>
+              <div class="book-info">
+                <div class="project-title">
+                  The Colossal Book of Short Puzzles and Problems
+                </div>
+                <div class="book-author">Martin Gardner</div>
+                <p>
+                  I loved this book when I read it in high school. It doesn't
+                  require any particular mathematical knowledge, just curiosity
+                  and the willingness to think.
+                </p>
+              </div>
+            </div>
+          </li>
 
-        <!-- Books Page -->
-        <div id="books" class="page">
-            <h1>Books</h1>
-            <p>Books I recommend.</p>
+          <li>
+            <div class="book-item">
+              <div class="book-cover">
+                <img
+                  src="BookCovers/against-intellectual-monopoly.jpg"
+                  alt="Against Intellectual Monopoly"
+                />
+              </div>
+              <div class="book-info">
+                <div class="project-title">Against Intellectual Monopoly</div>
+                <div class="book-author">
+                  Michele Boldrin and David K. Levine
+                </div>
+                <p>
+                  A really interesting take on patents and intellectual
+                  property. It made me question some of the assumptions I had
+                  about how innovation works and look at the whole topic a bit
+                  differently.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="book-item">
+              <div class="book-cover">
+                <img src="BookCovers/algorithms.jpg" alt="Algorithms" />
+              </div>
+              <div class="book-info">
+                <div class="project-title">Algorithms</div>
+                <div class="book-author">
+                  Christos Papadimitriou, Sanjoy Dasgupta and Umesh Vazirani
+                </div>
+                <p>
+                  My first book in the CS world, which I read in 11th grade.
+                  Sorry guys, I'm just emotionally attached to it.
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-            <ul class="project-list">
-                <li>
-                    <div class="book-item">
-                        <div class="book-cover">
-                            <img src="BookCovers/colossal-book-cover.jpg"
-                                alt="The Colossal Book of Short Puzzles and Problems">
-                        </div>
-                        <div class="book-info">
-                            <div class="project-title">The Colossal Book of Short Puzzles and Problems</div>
-                            <div class="book-author">Martin Gardner</div>
-                            <p>I loved this book when I read it in high school. It doesn't require any particular
-                                mathematical knowledge, just curiosity and the willingness to think.</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+      <!-- About Page -->
+      <div id="about" class="page">
+        <h1>About</h1>
+        <p>
+          I'm studying Applied Mathematics at Politecnico di Milano and I'm part
+          of Collegio di Milano.
+        </p>
+        <p>I like building things and solving problems.</p>
+        <p>I'm also interested in football and cycling.</p>
 
-        <!-- About Page -->
-        <div id="about" class="page">
-            <h1>About</h1>
-            <p>I'm studying Applied Mathematics at Politecnico di Milano and I'm part of Collegio di Milano.</p>
-            <p>I like building things and solving problems.</p>
-            <p>I'm also interested in football and cycling.</p>
-
-            <h2>Recognitions and Awards</h2>
-            <ul class="award-list">
-                <li>ITACPC – 3rd place, competing solo (apparently, finding teammates was the hardest part)</li>
-                <li>Italian Mathematics Olympiad – National Semifinals</li>
-                <li>Collegio di Milano Fellowship</li>
-                <li>Fratelli Zilli Scholarship (2024, 2025)</li>
-                <li>Recognized among the Top Students at ITST Kennedy (2024, 2025)</li>
-            </ul>
-
-        </div>
+        <h2>Recognitions and Awards</h2>
+        <ul class="award-list">
+          <li>
+            ITACPC – 3rd place, competing solo (apparently, finding teammates
+            was the hardest part)
+          </li>
+          <li>Italian Mathematics Olympiad – National Semifinals</li>
+          <li>Collegio di Milano Fellowship</li>
+          <li>Fratelli Zilli Scholarship (2024, 2025)</li>
+          <li>
+            Recognized among the Top Students at ITST Kennedy (2024, 2025)
+          </li>
+        </ul>
+      </div>
     </div>
 
     <script>
-        const links = document.querySelectorAll('[data-page]');
-        const pages = document.querySelectorAll('.page');
+      const links = document.querySelectorAll("[data-page]");
+      const pages = document.querySelectorAll(".page");
 
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pageId = link.getAttribute('data-page');
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const pageId = link.getAttribute("data-page");
 
-                pages.forEach(page => page.classList.remove('active'));
-                document.getElementById(pageId).classList.add('active');
+          pages.forEach((page) => page.classList.remove("active"));
+          document.getElementById(pageId).classList.add("active");
 
-                links.forEach(l => l.classList.remove('active'));
-                document.querySelectorAll(`[data-page="${pageId}"]`).forEach(l => l.classList.add('active'));
+          links.forEach((l) => l.classList.remove("active"));
+          document
+            .querySelectorAll(`[data-page="${pageId}"]`)
+            .forEach((l) => l.classList.add("active"));
 
-                window.scrollTo(0, 0);
-            });
+          window.scrollTo(0, 0);
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>
